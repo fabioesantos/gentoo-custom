@@ -12,14 +12,14 @@ DESCRIPTION="Frontend for emulators, game engines and media players"
 HOMEPAGE="https://www.retroarch.com/"
 SRC_URI="https://github.com/libretro/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="alsa cg cpu_flags_x86_sse dbus egl ffmpeg flac freetype gles gles3 kms
-	libcaca libusb materialui miniupnpc openal +opengl +ozone pulseaudio
-	qt rgui sdl +sdl2 sixel subtitles ssl stripes systemd tinyalsa udev
-	vulkan X xrandr xmb xv wayland +zlib"
+	libcaca libusb materialui miniupnpc openal +opengl opengl_core +ozone
+	parport plain_drm pulseaudio -qt5 rgui sdl +sdl2 sixel subtitles ssl stripes
+	systemd tinyalsa udev vulkan X xrandr xmb xv wayland +zlib"
 
 MENU_REQUIRED_USE="|| ( gles opengl vulkan )"
 REQUIRED_USE="
@@ -33,8 +33,7 @@ REQUIRED_USE="
 	opengl? ( !gles )
 	ozone? ( ${MENU_REQUIRED_USE} )
 	rgui? (
-		${MENU_REQUIRED_USE}
-		|| ( libcaca sdl sdl2 sixel )
+		|| ( ${MENU_REQUIRED_USE} libcaca sdl sdl2 sixel )
 	)
 	stripes? ( ${MENU_REQUIRED_USE} )
 	xmb? ( ${MENU_REQUIRED_USE} )
@@ -51,7 +50,7 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	cg? ( media-gfx/nvidia-cg-toolkit )
 	gles? ( media-libs/mesa:0=[gles2] )
-	ffmpeg? ( virtual/ffmpeg )
+	ffmpeg? ( media-video/ffmpeg )
 	flac? ( media-libs/flac )
 	freetype? ( media-libs/freetype )
 	kms? (
@@ -64,10 +63,9 @@ RDEPEND="
 	miniupnpc? ( net-libs/miniupnpc )
 	openal? ( media-libs/openal )
 	opengl? ( virtual/opengl )
-	ozone? ( games-emulation/retroarch-assets[ozone,xmb] )
+	ozone? ( games-emulation/retroarch-assets[ozone] )
 	pulseaudio? ( media-sound/pulseaudio )
-	qt? (
-		dev-libs/openssl:0=
+	qt5? (
 		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -78,7 +76,7 @@ RDEPEND="
 	sdl? ( media-libs/libsdl )
 	sdl2? ( media-libs/libsdl2 )
 	sixel? ( media-libs/libsixel )
-	ssl? ( net-libs/mbedtls:= )
+	ssl? ( net-libs/mbedtls )
 	subtitles? ( media-libs/libass )
 	systemd? ( sys-apps/systemd )
 	udev? ( virtual/udev )
@@ -161,15 +159,19 @@ src_configure() {
 		$(use_enable ffmpeg) \
 		$(use_enable gles opengles) \
 		$(use_enable gles3 opengles3) \
+		$(use_enable kms) \
 		$(use_enable libcaca caca) \
 		$(use_enable libusb) \
 		$(use_enable materialui) \
 		$(use_enable miniupnpc) \
 		$(use_enable openal al) \
 		$(use_enable opengl) \
+		$(use_enable opengl_core) \
 		$(use_enable ozone) \
+		$(use_enable parport) \
+		$(use_enable plain_drm) \
 		$(use_enable pulseaudio pulse) \
-		$(use_enable qt) \
+		$(use_enable qt5 qt) \
 		$(use_enable sdl) \
 		$(use_enable sdl2) \
 		$(use_enable sixel) \
@@ -184,42 +186,4 @@ src_configure() {
 		$(use_enable xrandr) \
 		$(use_enable xv xvideo) \
 		$(use_enable zlib)
-}
-
-pkg_postinst() {
-	elog "You should install libretro cores in order to run games."
-	elog "NES/Famicon:"
-	elog "\tgames-emulation/libretro-nestopia"
-	elog "Super Nintendo / Super Famicom:"
-	elog "\tgames-emulation/libretro-bsnes"
-	elog "Nintendo 3DS:"
-	elog "\tgames-emulation/libretro-citra"
-	elog "Nintendo 64:"
-	elog "\tgames-emulation/libretro-mupen64plus-next"
-	elog "Game Boy / Game Boy Color:"
-	elog "\tgames-emulation/libretro-sameboy"
-	elog "Game Boy Advance:"
-	elog "\tgames-emulation/libretro-mgba"
-	elog "\tgames-emulation/libretro-vbam"
-	elog "Nintendo DS / DSi:"
-	elog "\tgames-emulation/libretro-desmume"
-	elog "Sega Genesis / Mega Drive, CD, MS, GG:"
-	elog "\tgames-emulation/libretro-genesis-plus-gx"
-	elog "\tgames-emulation/libretro-picodrive"
-	elog "Sega Saturn:"
-	elog "\tgames-emulation/libretro-yabause"
-	elog "\tgames-emulation/libretro-mednafen-saturn"
-	elog "Sega Dreamcast:"
-	elog "\tgames-emulation/libretro-flycast"
-	elog "Sony Playstation:"
-	elog "\tgames-emulation/libretro-mednafen-psx"
-	elog "\tgames-emulation/libretro-pcsx-rearmed"
-	elog "NEC PC-FX:"
-	elog "\tgames-emulation/libretro-mednafen-pcfx"
-	elog ""
-
-	elog "You may want to install shader files via:"
-	elog "\tlibretro-common-shaders for Nvidia Cg shaders"
-	elog "\tlibretro-glsl-shaders for GLSL shaders"
-	elog "\tlibretro-slang-shaders for Vulkan shaders"
 }
