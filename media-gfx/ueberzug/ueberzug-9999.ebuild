@@ -1,38 +1,31 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-if [[ ${PV} = *9999* ]]; then
+DESCRIPTION="A command line utility which display images in X11 terminals"
+HOMEPAGE="https://github.com/seebye/${PN}"
+if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/seebye/ueberzug.git"
-	KEYWORDS=""
+	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
-	KEYWORDS="~amd64"
-	EGIT_COMMIT="${PV}"
-	SRC_URI="https://github.com/seebye/ueberzug/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="amd64 x86"
 fi
 
-DESCRIPTION="ueberzug is an alternative for w3mimgdisplay"
-HOMEPAGE="https://github.com/seebye/ueberzug"
-
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE=""
 
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="
 	dev-python/python-xlib[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/docopt[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
-"
-DEPEND="
-	${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	x11-libs/libXext
 "
