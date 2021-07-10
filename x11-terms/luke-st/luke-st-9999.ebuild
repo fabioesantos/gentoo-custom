@@ -51,7 +51,7 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr install
 
-	make_desktop_entry ${PN} simpleterm utilities-terminal 'System;TerminalEmulator;' ''
+	make_desktop_entry st simpleterm utilities-terminal 'System;TerminalEmulator;' ''
 
 	save_config config.h
 }
