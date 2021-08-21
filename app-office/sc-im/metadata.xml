@@ -5,4 +5,11 @@
 		<email>fabiosantos.bio@protonmail.com</email>
 		<name>fabioesantos</name>
 	</maintainer>
+    <use>
+		<flag name="less">Add less support</flag>
+		<flag name="tmux">Add copy/paste support via tmux</flag>
+		<flag name="vim">Add vim support</flag>
+		<flag name="xlsreader">Add support for read Excel XLSX files</flag>
+		<flag name="xlsxwriter">Add support for write Excel XLSX files</flag>
+    </use>
 </pkgmetadata>
