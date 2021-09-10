@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit eutils flag-o-matic
 
@@ -15,7 +15,7 @@ IUSE="+less +vim +tmux xlsreader xlsxwriter gnuplot lua examples"
 KEYWORDS="~x86 ~amd64"
 
 COMMON_DEPEND="
-	>=sys-libs/ncurses-5.2[unicode]
+	>=sys-libs/ncurses-5.2
 "
 DEPEND="
 	virtual/pkgconfig
