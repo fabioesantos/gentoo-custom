@@ -35,6 +35,13 @@ RDEPEND="
 	lua? ( =dev-lang/lua-5.1* )
 "
 
+src_prepare() {
+	default
+	sed src/Makefile \
+		-e 's|/usr/local|/usr|g' \
+		-i || die
+}
+
 src_compile() {
 	cd "${S}/src"
 	use xlsreader && append-cppflags "-DXLS" && export LDLIBS="-lxlsreader"
