@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst unpack
+DEPEND=~x11-libs/libXft-2.3.4
+DESCRIPTION=BGRA patch for libXft
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=~x11-libs/libXft-2.3.4
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/xorg/lib/libxft/-/commit/723092ece088559f1af299236305911f4ee4d450.diff -> 00-add_XftCompositeString-bgra.diff https://gitlab.freedesktop.org/xorg/lib/libxft/-/commit/e0fc4ce7e87ab9c4b47e5c8e693f070dfd0d2f7b.diff -> 01-add_XftCompositeText-bgra.diff https://gitlab.freedesktop.org/xorg/lib/libxft/-/commit/d385aa3e5320d18918413df0e8aef3a713a47e0b.diff -> 02-add_support_for_bgra_glyphs_display_and_scaling-bgra.diff
+_md5_=76fcd0fdefd58684788ecc793c53a7b4

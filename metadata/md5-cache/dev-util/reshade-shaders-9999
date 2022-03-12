@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=A collection of post-processing shaders written for ReShade
+EAPI=7
+HOMEPAGE=https://reshade.me https://github.com/crosire/reshade-shaders
+INHERIT=git-r3
+LICENSE=BSD
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=6256856f30087e7a265c021a2a208a8b
