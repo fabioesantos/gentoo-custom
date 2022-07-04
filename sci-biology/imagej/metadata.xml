@@ -1,0 +1,13 @@
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mmokrejs@fold.natur.cuni.cz</email>
+		<name>Martin Mokrejs</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>sci-biology@gentoo.org</email>
+		<name>Gentoo Biology Project</name>
+	</maintainer>
+	<use>
+		<flag name="plugins">Install additional plugins</flag>
+	</use>
+</pkgmetadata>
