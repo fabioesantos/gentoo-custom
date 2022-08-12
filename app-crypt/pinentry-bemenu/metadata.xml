@@ -1,0 +1,9 @@
+<pkgmetadata>
+	<maintainer type="person">
+		<email>flewkey@2a03.party</email>
+		<name>Ryan Fox</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">t-8ch/pinentry-bemenu</remote-id>
+	</upstream>
+</pkgmetadata>

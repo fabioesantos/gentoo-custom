@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+command="/usr/bin/crond"
+name="cron daemon"
+pidfile="/var/run/crond.pid"
+extra_started_commands="reload"
+
+depend() {
+	use clock logger
+	need localmount
+	provide cron	
+}
+
+reload() {
+	ebegin "Reloading crontab"
+	start-stop-daemon --signal HUP --pidfile "${pidfile}"
+}

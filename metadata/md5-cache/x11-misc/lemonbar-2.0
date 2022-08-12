@@ -1,0 +1,12 @@
+DEFINED_PHASES=-
+DEPEND=x11-libs/libxcb xft? ( x11-libs/libXft )
+DESCRIPTION=A featherweight, lemon-scented, bar based on xcb
+EAPI=7
+HOMEPAGE=https://github.com/drscream/lemonbar-xft
+IUSE=+xft
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=x11-libs/libxcb xft? ( x11-libs/libXft ) dev-lang/perl
+SLOT=0
+SRC_URI=https://github.com/drscream/lemonbar-xft/archive/refs/tags/v2.0.tar.gz -> lemonbar-2.0.tar.gz
+_md5_=e009d08b42c8618734422e092c185929
