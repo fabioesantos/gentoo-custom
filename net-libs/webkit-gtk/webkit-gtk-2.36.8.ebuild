@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 PYTHON_REQ_USE="xml(+)"
 PYTHON_COMPAT=( python3_{8..11} )
 USE_RUBY="ruby27 ruby30 ruby31"
@@ -17,7 +17,7 @@ LICENSE="LGPL-2+ BSD"
 SLOT="4/37" # soname version of libwebkit2gtk-4.0
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-IUSE="aqua avif +egl examples gamepad +geolocation gles2-only gnome-keyring +gstreamer gtk-doc +introspection +jpeg2k +jumbo-build lcms libnotify seccomp spell systemd test wayland X"
+IUSE="aqua avif +egl examples gamepad gles2-only gnome-keyring +gstreamer gtk-doc +introspection +jpeg2k +jumbo-build lcms libnotify seccomp spell systemd test wayland X"
 
 # gstreamer with opengl/gles2 needs egl
 REQUIRED_USE="
@@ -39,7 +39,6 @@ RDEPEND="
 	>=x11-libs/cairo-1.16.0:=[X?]
 	>=media-libs/fontconfig-2.13.0:1.0
 	>=media-libs/freetype-2.9.0:2
-	geolocation? ( >=app-misc/geoclue-2.1.5:2.0 )
 	>=dev-libs/libgcrypt-1.7.0:0=
 	>=x11-libs/gtk+-3.22.0:3[aqua?,introspection?,wayland?,X?]
 	>=media-libs/harfbuzz-1.4.2:=[icu(+)]
@@ -203,11 +202,12 @@ src_configure() {
 		-DBWRAP_EXECUTABLE:FILEPATH="${EPREFIX}"/usr/bin/bwrap # If bubblewrap[suid] then portage makes it go-r and cmake find_program fails with that
 		-DDBUS_PROXY_EXECUTABLE:FILEPATH="${EPREFIX}"/usr/bin/xdg-dbus-proxy
 		-DPORT=GTK
+		-DENABLE_ACCESSIBILITY=OFF
 		# Source/cmake/WebKitFeatures.cmake
 		-DENABLE_API_TESTS=$(usex test)
 		-DENABLE_BUBBLEWRAP_SANDBOX=$(usex seccomp)
 		-DENABLE_GAMEPAD=$(usex gamepad)
-		-DENABLE_GEOLOCATION=$(usex geolocation) # Runtime optional (talks over dbus service)
+		-DENABLE_GEOLOCATION=ON # Runtime optional (talks over dbus service)
 		-DENABLE_MINIBROWSER=$(usex examples)
 		-DENABLE_SPELLCHECK=$(usex spell)
 		-DENABLE_UNIFIED_BUILDS=$(usex jumbo-build)
@@ -219,7 +219,6 @@ src_configure() {
 		# Source/cmake/OptionsGTK.cmake
 		-DENABLE_GLES2=$(usex gles2-only)
 		-DENABLE_GTKDOC=$(usex gtk-doc)
-		-DENABLE_ACCESSIBILITY=OFF
 		-DENABLE_INTROSPECTION=$(usex introspection)
 		-DENABLE_JOURNALD_LOG=$(usex systemd)
 		-DENABLE_QUARTZ_TARGET=$(usex aqua)
