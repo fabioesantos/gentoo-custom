@@ -49,7 +49,6 @@ RDEPEND="
 	>=media-libs/libpng-1.4:0=
 	dev-db/sqlite:3=
 	sys-libs/zlib:0
-	>=dev-libs/atk-2.16.0
 	media-libs/libwebp:=
 
 	>=dev-libs/glib-2.67.1:2
