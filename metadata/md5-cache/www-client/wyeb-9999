@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=unpack
+DEPEND=net-libs/webkit-gtk:4= x11-libs/gtk+:3
+DESCRIPTION=A vim-like webkit2gtk web browser
+EAPI=7
+HOMEPAGE=https://github.com/jun7/wyeb
+INHERIT=git-r3
+LICENSE=GPL-3+
+PROPERTIES=live
+RDEPEND=net-libs/webkit-gtk:4= x11-libs/gtk+:3
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=beb72f97befe750bc8bace74086002e7
