@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare test unpack
+DEPEND=test? ( dev-lang/perl sys-apps/ed )
+DESCRIPTION=MirBSD Korn Shell
+EAPI=8
+HOMEPAGE=http://mirbsd.de/mksh
+INHERIT=toolchain-funcs git-r3
+IUSE=lksh static test
+LICENSE=MirOS BSD unicode
+PROPERTIES=live
+RESTRICT=!test? ( test )
+SLOT=0
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=e06722bc4e9138c9ae910cfff87e3c39
