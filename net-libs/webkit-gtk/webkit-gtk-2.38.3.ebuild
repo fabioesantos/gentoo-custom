@@ -15,7 +15,7 @@ SRC_URI="https://www.webkitgtk.org/releases/${MY_P}.tar.xz"
 
 LICENSE="LGPL-2+ BSD"
 SLOT="4/37" # soname version of libwebkit2gtk-4.0
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="aqua avif +egl examples gamepad gles2-only gnome-keyring +gstreamer +introspection pdf +jpeg2k +jumbo-build lcms seccomp spell systemd test wayland webrtc X"
 
@@ -37,6 +37,7 @@ RESTRICT="test"
 # >=gst-plugins-opus-1.14.4-r1 for opusparse (required by MSE)
 # TODO: gst-plugins-base[X] is only needed when build configuration ends up with GLX set, but that's a bit automagic too to fix
 RDEPEND="
+	<=dev-libs/atk-2.38.0
 	>=x11-libs/cairo-1.16.0[X?]
 	>=media-libs/fontconfig-2.13.0:1.0
 	>=media-libs/freetype-2.9.0:2
