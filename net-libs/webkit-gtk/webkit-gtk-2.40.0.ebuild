@@ -112,6 +112,7 @@ BDEPEND="
 	${RUBY_DEPS}
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
+	dev-util/unifdef
 	>=dev-util/gperf-3.0.1
 	>=sys-devel/bison-2.4.3
 	|| ( >=sys-devel/gcc-7.3 >=sys-devel/clang-5 )
@@ -219,7 +220,6 @@ src_configure() {
 		-DUSE_GSTREAMER_TRANSCODER=$(usex gstreamer)
 		-DENABLE_WEBGL=ON
 		# Supported only under ANGLE
-		-DENABLE_WEBGL2=OFF
 		-DENABLE_WEB_AUDIO=$(usex gstreamer)
 		# Source/cmake/OptionsGTK.cmake
 		-DENABLE_GLES2=$(usex gles2-only)
