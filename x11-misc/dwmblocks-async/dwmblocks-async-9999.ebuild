@@ -18,7 +18,7 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 
-	restore_config config.h
+	restore_config config.c
 }
 
 src_compile() {
@@ -30,5 +30,5 @@ src_install() {
 
 	dodoc README.md
 
-	save_config config.h
+	save_config config.c
 }
