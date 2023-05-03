@@ -9,6 +9,8 @@ HOMEPAGE="https://neovim.io/"
 LICENSE="Apache-2.0"
 SLOT="0"
 
+KEYWORDS="~amd64"
+
 RDEPEND="app-editors/neovim"
 
 src_unpack() {
