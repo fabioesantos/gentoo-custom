@@ -60,6 +60,7 @@ RDEPEND="
 	introspection? ( >=dev-libs/gobject-introspection-1.59.1:= )
 	dev-libs/libtasn1:=
 	spell? ( >=app-text/enchant-0.22:2 )
+	pdf? ( www-plugins/pdfjs )
 	gstreamer? (
 		>=media-libs/gstreamer-1.20:1.0
 		>=media-libs/gst-plugins-base-1.20:1.0[egl?,X?]
