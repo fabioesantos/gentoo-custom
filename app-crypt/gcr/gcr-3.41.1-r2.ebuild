@@ -13,10 +13,13 @@ LICENSE="GPL-2+ LGPL-2+"
 SLOT="0/1" # subslot = suffix of libgcr-base-3 and co
 
 IUSE="gtk gtk-doc +introspection systemd test +vala"
-REQUIRED_USE="vala? ( introspection )"
+REQUIRED_USE="
+	gtk-doc? ( introspection )
+	vala? ( introspection )
+"
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~sparc-solaris ~x86-solaris"
 
 DEPEND="
 	>=dev-libs/glib-2.44.0:2
@@ -70,6 +73,25 @@ src_configure() {
 
 src_test() {
 	dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+}
+
+src_install() {
+	meson_src_install
+
+	# These files are installed by gcr:4
+	local conflicts=(
+		"${ED}"/usr/libexec/gcr-ssh-agent
+	)
+	use systemd && conflicts+=(
+		"${ED}"/usr/lib/systemd/user/gcr-ssh-agent.{service,socket}
+	)
+	einfo "${conflicts[@]}"
+	rm "${conflicts[@]}" || die
+
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/{gck-1,gcr-3,gcr-ui-3} "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
 }
 
 pkg_postinst() {
