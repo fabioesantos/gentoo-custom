@@ -3,8 +3,6 @@
 
 EAPI=8
 
-#inherit meson
-
 DESCRIPTION="Linux port of OpenBSD's ksh"
 HOMEPAGE="https://github.com/ibara/oksh"
 SRC_URI="https://github.com/ibara/oksh/releases/download/oksh-${PV}/oksh-${PV}.tar.gz"
