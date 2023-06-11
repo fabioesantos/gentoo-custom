@@ -30,6 +30,8 @@ RDEPEND="
 	app-shells/zsh
 	nerd-fonts? ( media-fonts/meslo-nerd )"
 
+PATCHES=( "${FILESDIR}/fix-musl.patch" )
+
 DOCS=(
 	README.md
 	gitstatus/README.gitstatus.md

@@ -1,0 +1,15 @@
+diff --git a/gitstatus/src/dir.cc b/gitstatus/src/dir.cc
+index 39cf1c2..a96f10e 100644
+--- a/gitstatus/src/dir.cc
++++ b/gitstatus/src/dir.cc
+@@ -98,8 +98,8 @@ void SortEntries<false>(char** begin, char** end) {
+ bool ListDir(int dir_fd, Arena& arena, std::vector<char*>& entries, bool precompose_unicode,
+              bool case_sensitive) {
+   struct linux_dirent64 {
+-    ino64_t d_ino;
+-    off64_t d_off;
++    int64_t d_ino;
++    off_t d_off;
+     unsigned short d_reclen;
+     unsigned char d_type;
+     char d_name[];
