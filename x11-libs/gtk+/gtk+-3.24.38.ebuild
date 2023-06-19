@@ -58,7 +58,6 @@ COMMON_DEPEND="
 	)
 "
 DEPEND="${COMMON_DEPEND}
-	>=app-accessibility/at-spi2-core-2.46.0[introspection?,${MULTILIB_USEDEP}]
 	test? (
 		media-fonts/font-cursor-misc
 		media-fonts/font-misc-misc
