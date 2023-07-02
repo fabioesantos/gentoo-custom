@@ -17,7 +17,6 @@ IUSE=""
 
 DEPEND="
 x11-libs/libXext
-virtual/jpeg:*
 media-libs/giflib
 media-libs/libpng:*"
 RDEPEND="${DEPEND}"
