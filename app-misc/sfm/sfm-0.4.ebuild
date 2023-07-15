@@ -3,7 +3,7 @@
 
 EAPI=8
 
-#inherit eutils
+inherit savedconfig
 
 DESCRIPTION="Simple file manager."
 HOMEPAGE="https://github.com/afify/sfm"
@@ -22,4 +22,10 @@ src_prepare() {
 	sed config.mk \
 		-e 's|/usr/local|/usr|g' \
 		-i || die
+
+	restore_config config.h
+}
+
+src_install() {
+	save_config config.h
 }
