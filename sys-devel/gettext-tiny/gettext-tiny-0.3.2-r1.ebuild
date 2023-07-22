@@ -15,7 +15,7 @@ SLOT="tiny"
 KEYWORDS="~amd64"
 IUSE="shim"
 
-RDEPEND="!sys-devel/gettext:0"
+RDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}"/${P}-respect-CFLAGS.patch
