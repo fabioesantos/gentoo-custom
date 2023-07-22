@@ -1,8 +1,0 @@
-DEFINED_PHASES=-
-DESCRIPTION=dummy package for gettext-tiny
-EAPI=8
-HOMEPAGE=https://github.com/sabotage-linux/gettext-tiny
-KEYWORDS=~amd64
-LICENSE=metapackage
-SLOT=0
-_md5_=876bc211d79452b5074ad6ac8a40c15b
