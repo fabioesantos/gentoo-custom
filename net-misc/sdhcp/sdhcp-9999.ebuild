@@ -7,7 +7,7 @@ inherit git-r3
 
 DESCRIPTION="Simple dhcp client"
 HOMEPAGE="https://git.2f30.org/sdhcp/"
-EGIT_REPO_URI="git.2f30.org/sdhcp.git"
+EGIT_REPO_URI="git://git.2f30.org/sdhcp.git"
 
 LICENSE="MIT"
 SLOT="0"
