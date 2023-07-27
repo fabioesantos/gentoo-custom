@@ -6,7 +6,7 @@ EAPI=8
 inherit git-r3
 
 DESCRIPTION="Simple dhcp client"
-HOMEPAGE="git://git.2f30.org/${PN}/"
+HOMEPAGE="https://git.2f30.org/sdhcp/"
 EGIT_REPO_URI="${HOMEPAGE%/}.git"
 
 LICENSE="MIT"
