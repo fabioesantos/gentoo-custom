@@ -2,10 +2,10 @@ BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
 DESCRIPTION=Simple dhcp client
 EAPI=8
-HOMEPAGE=git://git.2f30.org/sdhcp/
+HOMEPAGE=https://git.2f30.org/sdhcp/
 INHERIT=git-r3
 LICENSE=MIT
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=52e0a2ecabced2ba362bae2916709b58
+_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=f91db84e08d091341444d04b0231db45
