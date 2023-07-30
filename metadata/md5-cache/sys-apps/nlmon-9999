@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DEPEND=sys-fs/mdevd
+DESCRIPTION=NetLink MONitor - A lightweight udevadm monitor replacement.
+EAPI=8
+HOMEPAGE=http://r-36.net/scm/nlmon
+INHERIT=git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=sys-fs/mdevd
+SLOT=0
+_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=ed3d9f203cb148a380f8c85973294808
