@@ -13,3 +13,7 @@ IUSE=""
 
 RDEPEND=">=x11-base/xorg-server-1.10"
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/01-readd-linux-supp.diff
+)
