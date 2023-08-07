@@ -3,12 +3,11 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Runit init scripts"
 HOMEPAGE="https://github.com/fabioesantos/${PN}"
-EGIT_REPO_URI="${HOMEPAGE}.git"
+SRC_URI="${HOMEPAGE}/archive/refs/tags/v${PV}.zip"
 
+KEYWORDS="amd64"
 LICENSE="CC0-1.0"
 SLOT="0"
 
