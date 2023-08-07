@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Runit init scripts"
 HOMEPAGE="https://github.com/fabioesantos/${PN}"
-SRC_URI="${HOMEPAGE}/archive/refs/tags/v${PV}.zip"
+SRC_URI="${HOMEPAGE}/archive/refs/tags/v${PV}.tar.gz -> runit-scripts-${PV}.tar.gz"
 
 KEYWORDS="amd64"
 LICENSE="CC0-1.0"
