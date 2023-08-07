@@ -17,6 +17,10 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/01-respect-cflags.diff
+)
+
 src_prepare() {
 	default
 	sed config.mk \
