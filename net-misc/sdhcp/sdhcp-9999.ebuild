@@ -12,6 +12,13 @@ EGIT_REPO_URI="git://git.2f30.org/sdhcp.git"
 LICENSE="MIT"
 SLOT="0"
 
+src_prepare() {
+	sed -i'' \
+		-e "s|CC        = cc|CC        ?= cc|g" \
+		config.mk
+	default
+}
+
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr install
 	newinitd "${FILESDIR}/sdhcp-openrc" sdhcp
