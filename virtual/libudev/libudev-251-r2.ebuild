@@ -20,7 +20,6 @@ REQUIRED_USE="
 RDEPEND="
 	!systemd? (
 		eudev? ( sys-fs/eudev[${MULTILIB_USEDEP}] )
-		!eudev? ( >=sys-apps/systemd-utils-251[udev,${MULTILIB_USEDEP}] )
 		mdevd? ( sys-fs/mdevd
                  sys-fs/libudev-zero
                  acct-group/netdev )

@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure postinst postrm prepare setup
+DEPEND=sys-libs/ncurses:=[unicode(+)?] hwloc? ( sys-apps/hwloc:= ) unwind? ( !llvm-libunwind? ( sys-libs/libunwind:= ) llvm-libunwind? ( sys-libs/llvm-libunwind:= ) ) kernel_linux? ( caps? ( sys-libs/libcap ) delayacct? ( dev-libs/libnl:3 ) lm-sensors? ( sys-apps/lm-sensors ) ) || ( dev-lang/python:3.11 dev-lang/python:3.10 )
+DESCRIPTION=interactive process viewer
+EAPI=8
+HOMEPAGE=https://github.com/KoffeinFlummi/htop-vim
+INHERIT=autotools linux-info python-any-r1 xdg-utils
+IUSE=caps debug delayacct hwloc kernel_FreeBSD kernel_linux lm-sensors llvm-libunwind openvz unicode unwind vserver
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=BSD GPL-2+
+RDEPEND=sys-libs/ncurses:=[unicode(+)?] hwloc? ( sys-apps/hwloc:= ) unwind? ( !llvm-libunwind? ( sys-libs/libunwind:= ) llvm-libunwind? ( sys-libs/llvm-libunwind:= ) ) kernel_linux? ( caps? ( sys-libs/libcap ) delayacct? ( dev-libs/libnl:3 ) lm-sensors? ( sys-apps/lm-sensors ) )
+SLOT=0
+SRC_URI=https://github.com/KoffeinFlummi/htop-vim/archive/refs/tags/3.0.3vim.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=542e0aa594ca0dae8839d7d5e0ff3b7f
