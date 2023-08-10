@@ -13,7 +13,7 @@ LICENSE="CC0-1.0"
 SLOT="0"
 
 RDEPEND="
-	sys-apps/seedrng
+	!sys-apps/seedrng
 	sys-apps/util-linux[tty-helpers]
 	sys-process/runit
 	!sys-apps/sysvinit"
