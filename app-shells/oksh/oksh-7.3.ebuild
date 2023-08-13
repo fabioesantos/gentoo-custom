@@ -24,8 +24,14 @@ RDEPEND="
 	!app-shells/ksh
 "
 
+src_configure() {
+    ./configure --prefix=/ --bindir=/bin --mandir=/usr/share/man --enable-ksh
+}
+
+src_compile() {
+    emake all
+}
+
 src_install() {
     default
-    dosym /usr/bin/oksh /bin/ksh
-    dosym /usr/share/man/man1/oksh.1 /usr/share/man/man1/ksh.1
 }
