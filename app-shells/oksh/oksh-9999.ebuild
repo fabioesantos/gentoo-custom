@@ -23,7 +23,6 @@ RDEPEND="
 "
 
 src_install() {
-    default
     dosym /usr/bin/oksh /bin/ksh
     dosym /usr/share/man/man1/oksh.1 /usr/share/man/man1/ksh.1
 }

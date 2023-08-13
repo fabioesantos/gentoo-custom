@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DEPEND=sys-libs/ncurses
+DESCRIPTION=Portable OpenBSD's ksh
+EAPI=8
+HOMEPAGE=https://github.com/ibara/oksh
+INHERIT=git-r3
+LICENSE=public-domain
+PROPERTIES=live
+RDEPEND=sys-libs/ncurses
+SLOT=0
+_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=95b6d0040f1df16347cda4f9ca60048d

@@ -3,6 +3,6 @@
 <pkgmetadata>
   <!-- maintainer-needed -->
   <upstream>
-    <remote-id type="github">dimkr/loksh</remote-id>
+    <remote-id type="github">ibara/oksh</remote-id>
   </upstream>
 </pkgmetadata>
