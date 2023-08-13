@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=compile configure install unpack
 DEPEND=sys-libs/ncurses
 DESCRIPTION=Portable OpenBSD's ksh
 EAPI=8
@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=sys-libs/ncurses !app-shells/loksh !app-shells/ksh
 SLOT=0
 _eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=3726ade1b3c1654b1522fcb26ff22926
+_md5_=efe848607c23c2160ec90800f1d5a0df

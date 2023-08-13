@@ -5,4 +5,7 @@
   <upstream>
     <remote-id type="github">ibara/oksh</remote-id>
   </upstream>
+  <use>
+    <flag name="sh">Build the /bin/sh program</flag>
+  </use>
 </pkgmetadata>

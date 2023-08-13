@@ -16,6 +16,7 @@ fi
 
 LICENSE="public-domain"
 SLOT="0"
+IUSE="sh static"
 
 DEPEND="sys-libs/ncurses"
 RDEPEND="
@@ -25,7 +26,12 @@ RDEPEND="
 "
 
 src_configure() {
-    ./configure --prefix=/ --bindir=/bin --mandir=/usr/share/man --enable-ksh
+    econf --prefix=/ \
+    --bindir=/bin \
+    --mandir=/usr/share/man \
+    --enable-ksh \
+    $(use_enable sh) \
+    $(use_enable static)
 }
 
 src_compile() {
