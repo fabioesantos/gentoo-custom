@@ -20,6 +20,8 @@ SLOT="0"
 DEPEND="sys-libs/ncurses"
 RDEPEND="
 	${DEPEND}
+	!app-shells/loksh
+	!app-shells/ksh
 "
 
 src_install() {
