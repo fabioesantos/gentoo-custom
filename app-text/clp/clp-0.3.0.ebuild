@@ -5,7 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit lua-single
+inherit lua
 
 DESCRIPTION="Writes input files to stdout with syntax highlighting"
 HOMEPAGE="https://github.com/jpe90/clp"
@@ -23,7 +23,7 @@ RDEPEND="${LUA_DEPS}"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	dev-lua/lua-utf8[${LUA_SINGLE_USEDEP}]
+	dev-lua/lua-utf8[${LUA_USEDEP}]
 	test? ( ${RDEPEND} )
 "
 
