@@ -4,7 +4,7 @@
 EAPI="8"
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="1"
+K_GENPATCHES_VER="8"
 K_SECURITY_UNSUPPORTED="1"
 K_NOSETEXTRAVERSION="1"
 
@@ -16,23 +16,22 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 HOMEPAGE="https://github.com/zen-kernel"
 IUSE=""
 
-# needed since patch is now zstd compressed
+# Needed for zstd compression of the patch
 BDEPEND="$(unpacker_src_uri_depends)"
 
 DESCRIPTION="The Zen Kernel Live Sources"
 
 ZEN_URI="https://github.com/zen-kernel/zen-kernel/releases/download/v${PV}-zen1/linux-v${PV}-zen1.patch.zst"
-
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${ZEN_URI}"
 
-UNIPATCH_LIST="${DISTDIR}/linux-v${PV}-zen1.patch.zst"
+UNIPATCH_LIST="${WORKDIR}/linux-v${PV}-zen1.patch"
 UNIPATCH_STRICTORDER="yes"
 
 K_EXTRAEINFO="For more info on zen-sources, and for how to report problems, see: \
 ${HOMEPAGE}, also go to #zen-sources on oftc"
 
 src_unpack() {
-	unpacker "${DISTDIR}/linux-v${PV}-zen1.patch.zst"
+	unpacker "linux-v${PV}-zen1.patch.zst"
 	kernel-2_src_unpack
 }
 
@@ -44,6 +43,11 @@ pkg_setup() {
 	ewarn "the ebuilds. Thank you."
 	ewarn
 	kernel-2_pkg_setup
+}
+
+src_install() {
+	rm "${WORKDIR}/linux-v${PV}-zen1.patch" || die
+	kernel-2_src_install
 }
 
 pkg_postrm() {
