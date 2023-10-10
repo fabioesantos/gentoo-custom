@@ -8,13 +8,16 @@ K_GENPATCHES_VER="1"
 K_SECURITY_UNSUPPORTED="1"
 K_NOSETEXTRAVERSION="1"
 
-inherit kernel-2
+inherit kernel-2 unpacker
 detect_version
 detect_arch
 
 KEYWORDS="~amd64 ~arm64 ~x86"
 HOMEPAGE="https://github.com/zen-kernel"
 IUSE=""
+
+# needed since patch is now zstd compressed
+BDEPEND="$(unpacker_src_uri_depends)"
 
 DESCRIPTION="The Zen Kernel Live Sources"
 
@@ -27,6 +30,11 @@ UNIPATCH_STRICTORDER="yes"
 
 K_EXTRAEINFO="For more info on zen-sources, and for how to report problems, see: \
 ${HOMEPAGE}, also go to #zen-sources on oftc"
+
+src_unpack() {
+	unpacker "${DISTDIR}/linux-v${PV}-zen1.patch.zst"
+	kernel-2_src_unpack
+}
 
 pkg_setup() {
 	ewarn
