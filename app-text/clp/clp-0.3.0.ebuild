@@ -24,6 +24,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	dev-lua/lua-utf8[${LUA_USEDEP}]
+	dev-lua/lpeg[${LUA_USEDEP}]
 	test? ( ${RDEPEND} )
 "
 
