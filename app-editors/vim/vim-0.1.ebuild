@@ -19,7 +19,6 @@ src_unpack() {
 
 src_install() {
 	dosym nvim /usr/bin/vim
-	dosym ../nvim/runtime /usr/share/vim/vimfiles
 
 	exeinto /usr/bin
 	doexe "${FILESDIR}/vimdiff"
